@@ -1,0 +1,2 @@
+export const ADD_IMAGE_RANDOM = "ADD_IMAGE_RANDOM";
+export const KEY_WEATHER = "23f43a4108747dc15753402bbc1542f4";
