@@ -4,24 +4,33 @@ import { AiFillEdit } from "react-icons/ai";
 import { GoArchive } from "react-icons/go";
 import TodoForm from "../TodoForm/Todoform";
 
-const TodoContent = ({todos, dragStartHandler, dragEndHandler, dragOverHandler, dropHandler, deleteTodo, updateTodo}) => {
-	const [updateElement, setUpdateElement] = useState({
+const TodoContent = ({
+	todos, 
+	dragStartHandler, 
+	dragEndHandler, 
+	dragOverHandler, 
+	dropHandler, 
+	deleteTodo, 
+	updateTodo,
+	compliteTodo,
+	}) => {
+	const [updateTodoElement, setUpdateTodoElement] = useState({
 		id: null,
 		value: "",
 	})
 
 	const sumbitUpdate = (todo) => {
-		updateTodo(updateElement.id, todo)
-		setUpdateElement({
+		updateTodo(updateTodoElement.id, todo)
+		setUpdateTodo({
 			id: null,
 			value: ""
 		})
 	}
 	
 	return todos.map((todo) => (
-		updateElement.id == todo.id ? 
+		updateTodoElement.id == todo.id ? 
 			<div key={todo.id}>
-				<TodoForm updateElement={updateElement} onSubmit={sumbitUpdate} />
+				<TodoForm updateTodoElement={updateTodoElement} onSubmit={sumbitUpdate} />
 			</div>
 			:<div 
 				key={todo.id} 
@@ -33,8 +42,10 @@ const TodoContent = ({todos, dragStartHandler, dragEndHandler, dragOverHandler, 
 				onDragOver={(e) => dragOverHandler(e)}
 				onDrop={(e) => dropHandler(e, todo)}
 			>
-				<span>{todo.text}</span>
-				<AiFillEdit onClick={() => setUpdateElement({id: todo.id, value: todo.text})}/>
+				<div onClick={() => compliteTodo(todo.id)}>
+					<span>{todo.text}</span>
+				</div>
+				<AiFillEdit onClick={() => setUpdateTodoElement({id: todo.id, value: todo.text})}/>
 				<GoArchive onClick={() => deleteTodo(todo.id)}/>
 			</div>
 		

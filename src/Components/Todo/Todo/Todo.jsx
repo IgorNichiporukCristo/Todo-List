@@ -48,7 +48,9 @@ const Todo = () => {
 	}
 	const updateTodo = (todoId, todo) => {
 		setTodos(todos.map((el) => el.id == todoId ? todo : el))
-	
+	}
+	const compliteTodo = (id) => {
+		setTodos(todos.map(todo => todo.id == id ? {...todo, isComplete: todo.isComplete} : todo))
 	}
 
 
@@ -63,6 +65,7 @@ const Todo = () => {
 				dropHandler={dropHandler}
 				deleteTodo={deleteTodo}
 				updateTodo={updateTodo}
+				compliteTodo={compliteTodo}
 			/>
 		</div>
 	)

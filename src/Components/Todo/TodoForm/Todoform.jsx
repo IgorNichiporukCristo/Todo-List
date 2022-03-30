@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 
 const TodoForm = (props) => {
-	const [input, setInput] = useState(props.updateElement ? props.updateElement.value : "");
+	const [input, setInput] = useState(props.updateTodoElement ? props.updateTodoElement.value : "");
 	
 	const handleChange = e => {
 		setInput(e.target.value)
@@ -12,8 +12,8 @@ const TodoForm = (props) => {
 		e.preventDefault();
 		props.onSubmit({
 			id: Date.now(),
-			queue: Date.now(),
 			text: input,
+			isComplete: false
 		})
 		setInput("");
 	}
