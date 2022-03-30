@@ -46,6 +46,11 @@ const Todo = () => {
 	const deleteTodo = (id) => {
 		setTodos(todos.filter(todo => todo.id != id))
 	}
+	const updateTodo = (todoId, todo) => {
+		setTodos(todos.map((el) => el.id == todoId ? todo : el))
+	
+	}
+
 
 	return (
 		<div>
@@ -57,6 +62,7 @@ const Todo = () => {
 				dragOverHandler={dragOverHandler}
 				dropHandler={dropHandler}
 				deleteTodo={deleteTodo}
+				updateTodo={updateTodo}
 			/>
 		</div>
 	)
