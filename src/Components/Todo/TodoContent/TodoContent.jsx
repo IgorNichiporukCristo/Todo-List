@@ -21,7 +21,7 @@ const TodoContent = ({
 
 	const sumbitUpdate = (todo) => {
 		updateTodo(updateTodoElement.id, todo)
-		setUpdateTodo({
+		setUpdateTodoElement({
 			id: null,
 			value: ""
 		})

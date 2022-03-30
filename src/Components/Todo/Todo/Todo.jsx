@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import TodoContent from "../TodoContent/TodoContent";
 import TodoForm from "../TodoForm/Todoform";
+import './todo.scss';
 
 const localTodoList = () => {
   if(localStorage.getItem("todos")) {
@@ -55,7 +56,7 @@ const Todo = () => {
 
 
 	return (
-		<div>
+		<div className="todo-countainer">
 			<TodoForm onSubmit={addTodo}  />
 			<TodoContent 
 				todos={todos} 

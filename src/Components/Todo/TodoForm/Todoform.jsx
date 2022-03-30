@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import './todo-form.scss';
 
 const TodoForm = (props) => {
 	const [input, setInput] = useState(props.updateTodoElement ? props.updateTodoElement.value : "");
@@ -18,9 +19,10 @@ const TodoForm = (props) => {
 		setInput("");
 	}
   return (
-    <div>
+    <div className="todo-form-countainer">
 			<form onSubmit={handleSubmit}>
 				<input 
+				  className="todo-input"
 					type="text"
 					placeholder="Add item" 
 					value={input}
