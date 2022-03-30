@@ -5,4 +5,12 @@
   justify-content: center;
   width: 50%;
   height: 70%;
+  .todo-content{
+    height: 80%;
+    width: 100%;
+    overflow-y: auto;
+  }
+  .todo-content::-webkit-scrollbar {
+    width: 0px;
+  }
 }

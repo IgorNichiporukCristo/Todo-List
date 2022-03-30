@@ -28,13 +28,13 @@ const TodoContent = ({
 	}
 	
 	return todos.map((todo) => (
-		updateTodoElement.id == todo.id ? 
+		updateTodoElement.id == todo.id ?
 			<div key={todo.id}>
 				<TodoForm updateTodoElement={updateTodoElement} onSubmit={sumbitUpdate} />
 			</div>
 			:<div 
 				key={todo.id} 
-				className="todo-content"  
+				className="todo-element"  
 				draggable={true}
 				onDragStart={(e) => dragStartHandler(e, todo)} 
 				onDragLeave={(e) => dragEndHandler(e)}
@@ -43,10 +43,13 @@ const TodoContent = ({
 				onDrop={(e) => dropHandler(e, todo)}
 			>
 				<div onClick={() => compliteTodo(todo.id)}>
-					<span>{todo.text}</span>
+					<p>{todo.text}</p>
 				</div>
-				<AiFillEdit onClick={() => setUpdateTodoElement({id: todo.id, value: todo.text})}/>
-				<GoArchive onClick={() => deleteTodo(todo.id)}/>
+				<div>
+					<AiFillEdit className="todo-conent-icons" onClick={() => setUpdateTodoElement({id: todo.id, value: todo.text})}/>
+					<GoArchive className="todo-conent-icons" onClick={() => deleteTodo(todo.id)}/>
+				</div>
+				
 			</div>
 		
 	))

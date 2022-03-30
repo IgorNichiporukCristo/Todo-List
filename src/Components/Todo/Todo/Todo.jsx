@@ -58,7 +58,8 @@ const Todo = () => {
 	return (
 		<div className="todo-countainer">
 			<TodoForm onSubmit={addTodo}  />
-			<TodoContent 
+			<div className="todo-content">
+				<TodoContent 
 				todos={todos} 
 				dragStartHandler={dragStartHandler} 
 				dragEndHandler={dragEndHandler}
@@ -67,7 +68,9 @@ const Todo = () => {
 				deleteTodo={deleteTodo}
 				updateTodo={updateTodo}
 				compliteTodo={compliteTodo}
-			/>
+				/>
+			</div>
+			
 		</div>
 	)
 }

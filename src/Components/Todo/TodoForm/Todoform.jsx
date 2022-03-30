@@ -20,15 +20,17 @@ const TodoForm = (props) => {
 	}
   return (
     <div className="todo-form-countainer">
-			<form onSubmit={handleSubmit}>
+			<form className="todo-form" onSubmit={handleSubmit}>
 				<input 
 				  className="todo-input"
 					type="text"
 					placeholder="Add item" 
 					value={input}
 					onChange={handleChange}
+					maxLength="40"
+					minLength="1"
 				/>
-				<button>Add</button>
+				<button className="todo-button">Add</button>
 			</form>
     </div>
   )

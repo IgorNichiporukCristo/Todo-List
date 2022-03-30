@@ -1,11 +1,26 @@
-.todo-form-countainer {
+.todo-form-countainer{
   width: 100%;
-
-  .todo-input {
-    width: 80%;
-    height: 5%;
-    border: 0px rgb(194, 182, 206);
-    outline: none;
-    background: transparent;
+  margin-bottom: 10px;
+  .todo-form {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    .todo-input {
+      width: 80%;
+      height: 5%;
+      border: none;
+      border-bottom: 2px solid  rgb(255, 100, 19);
+      outline: none;
+      background: transparent;
+    }
+    .todo-button{
+      border: none;
+      cursor: pointer;
+      padding: 8px 16px 8px 16px;
+      background-color: rgb(255, 100, 19);
+      border-radius: 7px;
+    }
   }
-}
+} 
+ 
