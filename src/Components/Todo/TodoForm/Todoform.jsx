@@ -19,7 +19,7 @@ const TodoForm = (props) => {
 		setInput("");
 	}
   return (
-    <div className="todo-form-countainer">
+    <div className={props.updateTodoElement ? "todo-form-countainer todo-form-countainer-margin": "todo-form-countainer"}>
 			<form className="todo-form" onSubmit={handleSubmit}>
 				<input 
 				  className="todo-input"
@@ -27,10 +27,8 @@ const TodoForm = (props) => {
 					placeholder="Add item" 
 					value={input}
 					onChange={handleChange}
-					maxLength="40"
-					minLength="1"
 				/>
-				<button className="todo-button">Add</button>
+				<button className={props.updateTodoElement ?"todo-button-ubpdate": "todo-button"}>Add</button>
 			</form>
     </div>
   )

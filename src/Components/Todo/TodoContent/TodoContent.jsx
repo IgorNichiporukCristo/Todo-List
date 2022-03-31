@@ -6,10 +6,8 @@ import TodoForm from "../TodoForm/Todoform";
 
 const TodoContent = ({
 	todos, 
-	dragStartHandler, 
-	dragEndHandler, 
+	dragStartHandler,  
 	dragOverHandler, 
-	dropHandler, 
 	deleteTodo, 
 	updateTodo,
 	compliteTodo,
@@ -34,16 +32,13 @@ const TodoContent = ({
 			</div>
 			:<div 
 				key={todo.id} 
-				className="todo-element"  
+				className={todo.isComplete? "todo-element complete-todo" : "todo-element"}  
 				draggable={true}
 				onDragStart={(e) => dragStartHandler(e, todo)} 
-				onDragLeave={(e) => dragEndHandler(e)}
-				onDragEnd={(e) => dragEndHandler(e)}
-				onDragOver={(e) => dragOverHandler(e)}
-				onDrop={(e) => dropHandler(e, todo)}
+				onDragOver={(e) => dragOverHandler(e, todo)}
 			>
-				<div onClick={() => compliteTodo(todo.id)}>
-					<p>{todo.text}</p>
+				<div className="todo-list-text-countainer" onClick={() => compliteTodo(todo.id)}>
+					<p className="todo-list-text">{todo.text}</p>
 				</div>
 				<div>
 					<AiFillEdit className="todo-conent-icons" onClick={() => setUpdateTodoElement({id: todo.id, value: todo.text})}/>

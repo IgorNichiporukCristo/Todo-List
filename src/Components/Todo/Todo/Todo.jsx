@@ -24,16 +24,9 @@ const Todo = () => {
 	const dragStartHandler = (e, todo) => {
 		setCurrTodoNandler(todo)
 	}
-	const dragEndHandler = (e) => {
-		e.target.style.opacity = 1
-	}
-	const dragOverHandler = (e) => {
+	const dragOverHandler = (e, todo) => {
 		e.preventDefault()
-		e.target.style.opacity = 0.5
-	}
-	const dropHandler = (e, todo) => {
-		e.preventDefault()
-		e.target.style.opacity = 1
+	
 		let arr = [...todos]
 		arr.splice(todos.indexOf(currTodoNandler), 1)
 	  arr.splice(todos.indexOf(todo), 0, currTodoNandler)
@@ -51,7 +44,7 @@ const Todo = () => {
 		setTodos(todos.map((el) => el.id == todoId ? todo : el))
 	}
 	const compliteTodo = (id) => {
-		setTodos(todos.map(todo => todo.id == id ? {...todo, isComplete: todo.isComplete} : todo))
+		setTodos(todos.map(todo => todo.id == id ? {...todo, isComplete: !todo.isComplete} : todo))
 	}
 
 
@@ -62,9 +55,7 @@ const Todo = () => {
 				<TodoContent 
 				todos={todos} 
 				dragStartHandler={dragStartHandler} 
-				dragEndHandler={dragEndHandler}
 				dragOverHandler={dragOverHandler}
-				dropHandler={dropHandler}
 				deleteTodo={deleteTodo}
 				updateTodo={updateTodo}
 				compliteTodo={compliteTodo}
